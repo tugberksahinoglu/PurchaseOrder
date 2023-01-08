@@ -25,6 +25,9 @@ builder.Services.AddScoped<INotificationRepository, NotificationRepository>();
 //Services
 builder.Services.AddScoped<IOrderService, OrderService>();
 builder.Services.AddScoped<INotificationService, NotificationService>();
+builder.Services.AddScoped<INotificationStrategyService, EmailNotificationService>();
+builder.Services.AddScoped<INotificationStrategyService, SmsNotificationService>();
+builder.Services.AddScoped<INotificationStrategyService, PushNotificationService>();
 
 var app = builder.Build();
 
