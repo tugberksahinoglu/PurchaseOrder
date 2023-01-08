@@ -1,5 +1,7 @@
+using Microsoft.EntityFrameworkCore;
 using PurchaseOrder.Business.Interfaces;
 using PurchaseOrder.Business.Services;
+using PurchaseOrder.Data;
 using PurchaseOrder.Data.Interfaces;
 using PurchaseOrder.Data.Repositories;
 
@@ -11,6 +13,10 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddDbContext<DataContext>(options => {
+    options.UseInMemoryDatabase("InMemoryDb");
+});
 
 //Repositories
 builder.Services.AddScoped<IOrderRepository, OrderRepository>();

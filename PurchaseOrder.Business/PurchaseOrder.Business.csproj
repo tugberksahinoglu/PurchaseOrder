@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\PurchaseOrder.Data\PurchaseOrder.Data.csproj" />
+    <ProjectReference Include="..\PurchaseOrder.Model\PurchaseOrder.Model.csproj" />
+  </ItemGroup>
+
 </Project>

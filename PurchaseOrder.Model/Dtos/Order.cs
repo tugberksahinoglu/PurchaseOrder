@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
 namespace PurchaseOrder.Model.Dtos {
-    public record Order {
+    public record CreateOrderRequest {
         [Required]
         public byte DayOfMonth { get; set; }
         [Required]
@@ -9,5 +9,10 @@ namespace PurchaseOrder.Model.Dtos {
         [Required]
         public long UserId { get; set; }
         public List<Notification>? Notifications { get; set; }
+    }
+
+    public record GetOrderResponse {
+        public byte DayOfMonth { get; set; }
+        public decimal Amount { get; set; }
     }
 }

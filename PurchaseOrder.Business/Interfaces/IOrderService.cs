@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using PurchaseOrder.Model;
+using PurchaseOrder.Model.Dtos;
 
 namespace PurchaseOrder.Business.Interfaces {
     public interface IOrderService {
+        Task Create(CreateOrderRequest request);
+        Task<GetOrderResponse?> GetByUserId(long userId);
     }
 }

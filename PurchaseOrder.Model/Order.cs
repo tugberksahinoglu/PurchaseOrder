@@ -12,5 +12,6 @@ namespace PurchaseOrder.Model
         public decimal Amount { get; set; }
         [Required]
         public long UserId { get; set; }
+        public bool IsActive { get; set; } = true;
     }
 }

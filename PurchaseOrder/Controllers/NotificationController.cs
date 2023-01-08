@@ -9,7 +9,7 @@ namespace PurchaseOrder.Controllers {
         /// </summary>
         [HttpGet]
         [Route("{orderId}")]
-        public IActionResult Get(long orderId) {
+        public async Task<IActionResult> Get(long orderId) {
             return Ok();
         }
     }
