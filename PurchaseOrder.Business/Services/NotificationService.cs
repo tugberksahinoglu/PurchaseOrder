@@ -6,9 +6,23 @@ using PurchaseOrder.Model.Dtos;
 namespace PurchaseOrder.Business.Services {
     public class NotificationService : INotificationService {
         private readonly INotificationRepository _notificationRepository;
-        public NotificationService(INotificationRepository notificationRepository) {
+        private readonly List<INotificationStrategyService> _notificationStrategies;
+        public NotificationService(INotificationRepository notificationRepository, List<INotificationStrategyService> notificationStrategies) {
             _notificationRepository = notificationRepository;
+            _notificationStrategies = notificationStrategies;
         }
+
+        private async Task SendNotificationAsync(string message) {
+            foreach (var strategy in _notificationStrategies) {
+                if(await strategy.SendNotificationAsync(message)) {
+                    //TODO: Log notification sent time to NotificationLog
+                }
+                else {
+                    //TODO: Log to txt file 
+                }
+            }
+        }
+
         public async Task CreateAsync(long orderId, List<CreateNotificationRequest>? notificationRequests) {
             if (notificationRequests is null) {
                 throw new ArgumentNullException(nameof(notificationRequests));
@@ -22,6 +36,7 @@ namespace PurchaseOrder.Business.Services {
                 });
             }
             await _notificationRepository.CreateAsync(notifications);
+            await SendNotificationAsync("Your order created");
         }
 
         public async Task<List<GetNotificationResponse>?> GetAsync(long orderId) {

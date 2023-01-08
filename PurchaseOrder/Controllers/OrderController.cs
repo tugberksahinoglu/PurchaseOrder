@@ -17,6 +17,7 @@ namespace PurchaseOrder.Controllers {
         /// <returns></returns>
         [HttpPost]
         public async Task<IActionResult> CreateAsync(CreateOrderRequest order) {
+            //TODO: use Fluent API to check -> DayOfMonth between 1 and 28, Amount between 100 and 20000.
             await _orderService.CreateAsync(order);
             return Ok();
         }

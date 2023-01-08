@@ -7,6 +7,7 @@ namespace PurchaseOrder.Data {
         : base(options) { }
         public DbSet<Order> Orders { get; set; }
         public DbSet<Notification> Notifications { get; set; }
+        public DbSet<NotificationLog> NotificationLogs { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
             optionsBuilder.UseInMemoryDatabase("InMemoryDb");
