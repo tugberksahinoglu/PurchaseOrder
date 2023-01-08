@@ -34,5 +34,13 @@ namespace PurchaseOrder.Data.Repositories {
             }
             return response;
         }
+
+        public async Task Delete(long orderId) {
+            var order = await _dbContext.Orders.FirstOrDefaultAsync(o => o.IsActive && o.Id == orderId);
+            if (order is not null) {
+                order.IsActive = false;
+                await _dbContext.SaveChangesAsync();
+            }
+        }
     }
 }

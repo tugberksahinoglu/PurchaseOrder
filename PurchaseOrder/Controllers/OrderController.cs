@@ -36,6 +36,7 @@ namespace PurchaseOrder.Controllers {
         [HttpDelete]
         [Route("{orderId}")]
         public async Task<IActionResult> Delete(long orderId) {
+            await _orderService.Delete(orderId);
             return Ok();
         }
     }

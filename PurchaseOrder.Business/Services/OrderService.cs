@@ -20,5 +20,9 @@ namespace PurchaseOrder.Business.Services {
         public async Task<GetOrderResponse?> GetByUserId(long userId) {
             return await _orderRepository.GetByUserId(userId);
         }
+
+        public async Task Delete(long orderId) {
+            await _orderRepository.Delete(orderId);
+        }
     }
 }
