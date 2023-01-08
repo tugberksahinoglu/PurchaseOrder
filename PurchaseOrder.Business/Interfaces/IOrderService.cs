@@ -3,8 +3,8 @@ using PurchaseOrder.Model.Dtos;
 
 namespace PurchaseOrder.Business.Interfaces {
     public interface IOrderService {
-        Task Create(CreateOrderRequest request);
-        Task Delete(long orderId);
-        Task<GetOrderResponse?> GetByUserId(long userId);
+        Task CreateAsync(CreateOrderRequest request);
+        Task DeleteAsync(long orderId);
+        Task<GetOrderResponse?> GetByUserIdAsync(long userId);
     }
 }

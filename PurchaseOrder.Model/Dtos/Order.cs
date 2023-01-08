@@ -8,7 +8,7 @@ namespace PurchaseOrder.Model.Dtos {
         public decimal Amount { get; set; }
         [Required]
         public long UserId { get; set; }
-        public List<Notification>? Notifications { get; set; }
+        public List<CreateNotificationRequest>? Notifications { get; set; }
     }
 
     public record GetOrderResponse {

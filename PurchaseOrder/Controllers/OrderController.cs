@@ -16,8 +16,8 @@ namespace PurchaseOrder.Controllers {
         /// </summary>
         /// <returns></returns>
         [HttpPost]
-        public async Task<IActionResult> Create(CreateOrderRequest order) {
-            await _orderService.Create(order);
+        public async Task<IActionResult> CreateAsync(CreateOrderRequest order) {
+            await _orderService.CreateAsync(order);
             return Ok();
         }
 
@@ -26,8 +26,8 @@ namespace PurchaseOrder.Controllers {
         /// </summary>
         [HttpGet]
         [Route("{userId}")]
-        public async Task<IActionResult> Get(long userId) {
-            return Ok(await _orderService.GetByUserId(userId));
+        public async Task<IActionResult> GetAsync(long userId) {
+            return Ok(await _orderService.GetByUserIdAsync(userId));
         }
 
         /// <summary>
@@ -35,8 +35,8 @@ namespace PurchaseOrder.Controllers {
         /// </summary>
         [HttpDelete]
         [Route("{orderId}")]
-        public async Task<IActionResult> Delete(long orderId) {
-            await _orderService.Delete(orderId);
+        public async Task<IActionResult> DeleteAsync(long orderId) {
+            await _orderService.DeleteAsync(orderId);
             return Ok();
         }
     }
