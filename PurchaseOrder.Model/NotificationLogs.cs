@@ -10,6 +10,6 @@ namespace PurchaseOrder.Model {
         [Required]
         public string Message { get; set; }
         [Required]
-        public DateTime SentDateTime { get; set; }
+        public DateTimeOffset SentDateTime { get; set; } = DateTime.UtcNow;
     }
 }
